@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+	<xacro:macro name="staj_robot_taban.xacro">//macro tanımlamasının yapıldığı kısım
+		<link name="taban_kısmı">//link etiketi ile robotun katı kısımlarını tanımladık ve taban_kısmı ismini verdik
+			<collision>//robotumuzun fiziksel özelliklerini belirtmeye başladık
+				<origin xyz= "0 0 0" rpy="0 0 0"/>//robotumuzun orta noktasını belirtmek için kullanmış olduğumuz kısım
+				<geometry>
+					<box size="0.5 0.3 0.2"/>//robotumuzun taban kısmının ölçülerini belirledik
+				</geometry>
+			</collision>
+			<visual>//robotumuzun göreceğimiz kısımlarını belirledik
+				<origin xyz= "0 0 0" rpy="0 0 0"/>//robotumuzun orta noktasını belirtmek için kullanmış olduğumuz kısım
+				<geometry>
+					<box size="0.5 0.3 0.2"/>//robotumuzun taban kısmının ölçülerini belirledik
+				</geometry>
+			</visual>
+		</link>
+		<gazebo reference="taban_kısım">//gazebo içerisinde görüntülemek için ekledik reference olarak link name i kullandık
+			<material value="Gazebo/Red"/>//robotumuzun taban rengini belirledik
+		</gazebo>
+	</xacro:macro>
+</robot>
+

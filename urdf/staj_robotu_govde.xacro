@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot name="staj_robotu" xmlns:xacro="http://ros.org/wiki/xacro">
+	<xacro:include filename="$(find staj_robotu_description)/urdf/staj_robot_taban.xacro">//taban için oluşturduğumuz xacro dosyasını gövdeye import ettik
+	<xacro:include filename="$(find staj_robotu_description)/urdf/staj_robot_inertia.xacro">
+	<xacro:include filename="$(find staj_robotu_description)/urdf/staj_robot_tekerlek.xacro">
+
+	
+	 <xacro:staj_robot_taban/>//import ettiğimiz xacroyu kullanıcağımızı belirttik
+	 <xacro:staj_robot_tekerlek xyz_konum="0.0 -0.175 -0.1" rpy_konum="0 0 0" yon="left"/>
+	 <xacro:staj_robot_tekerlek xyz_konum="0.0 0.175 -0.1" rpy_konum="0 0 0" yon="right/>
+
+
+
+</robot>
+

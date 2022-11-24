@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+	<xacro:macro name="staj_robot_tekerlek.xacro" params="xyz_konum rpy_konum yon">
+    <link name="tekerlek_${yon}_link">
+        <collision>
+            <origin xyz="0 0 0" rpy"0 0 0">
+            <geometry>
+             <cylinder radius="0.1" length="0.05"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="0 0 0" rpy"0 0 0">
+            <geometry>
+             <cylinder radius="0.1" length="0.05"/>
+            </geometry>
+        </visual>
+        <xacro:cylinder_inertial radius="0.1" length="0.05" mass="0.5"/>
+    </link>
+    <joint name="tekerlek_${yon}_taban" type="continuous">   
+    <origin xyz="${xyz_konum}" rpy="${rpy_konum}">
+    <parent link="taban_kısmı"/>//tekerlekler nereye bağlanıcak
+    <child link="tekerlek_${yon}_link"/>
+    <axis xyz="0 1 0"/>
+    </joint>
+    <gazebo reference="tekerlek_${yon}_link">//gazebo içerisinde görüntülemek için ekledik reference olarak link name i kullandık
+	    <material value="Gazebo/Black"/>//robotumuzun teker rengini belirledik
+	</gazebo>
+	</xacro:macro>
+</robot>
